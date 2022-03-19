@@ -21,7 +21,7 @@
             class="img-slide"
             :caption="character.name"
             :text="character.status"
-            :img-src="character.image"
+            :img-src="imagesForCharacters[character.id]"
           >
           </b-carousel-slide>
         </b-link>
@@ -41,6 +41,11 @@ export default {
     return {
       results: [],
       slide: 0,
+      imagesForCharacters: {
+        1: "/images/rick.jpg", // localhost/images/rick.jpg
+        2: "/images/summer.jpg",
+        3: "/images/morty.jpg"
+      },
       sliding: null,
     };
   },
@@ -65,7 +70,7 @@ export default {
 </script>
 
 <style>
-.img-slide {
+/* .img-slide {
   height: 400px;
-}
+} */
 </style>

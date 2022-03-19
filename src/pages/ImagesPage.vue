@@ -5,11 +5,13 @@
    
 <div align="center">
  <div class="inline" v-for="character of results" :key="character.id">
+     <b-link :to="{ name: 'newsDetails', params: { id: character.id } }">
         <img class="inline-img"
       :src="character.image"
       width="300px"
       alt=""
     />
+     </b-link>
 
     </div>
 </div>
