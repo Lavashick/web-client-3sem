@@ -2,6 +2,7 @@ import VueRouter from 'vue-router'
 import HomePage from './pages/HomePage'
 import NewsPage from './pages/NewsPage'
 import NewsDetailsPage from './pages/NewsDetailsPage'
+import ImagesPage from './pages/ImagesPage'
 
 export default new VueRouter({
     routes: [
@@ -9,20 +10,21 @@ export default new VueRouter({
             path: '',
             name: 'home',
             component: HomePage,
-            props: true
         },
         {
             path: '/news',
             name: 'news',
             component: NewsPage,
-            props: true //Разрешение на передачу props 
-                        //(хранит массив ключей или свойств, которым извне можно передать значения) 
         },
         {
             path: '/news/:id',
             name: 'newsDetails',
             component: NewsDetailsPage,
-            props: true
+        },
+        {
+            path: '/images',
+            name: 'images',
+            component: ImagesPage,
         }
     ],
     mode: 'history'

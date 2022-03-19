@@ -12,13 +12,18 @@
         <b-collapse id="nav-text-collapse" is-nav>
           <b-navbar-nav>
 
-            <router-link tag="b-nav-item" :to="{ name: 'home' }" active-class="active" exact>
+            <router-link tag="b-nav-item" :to="{ name: 'home' }" active-class="active" >
                 Главная
             </router-link>
 
-            <router-link tag="b-nav-item" :to="{ name: 'news' }" active-class="active" exact>
+            <router-link tag="b-nav-item" :to="{ name: 'news' }" active-class="active" >
                 Новости
             </router-link>
+
+            <router-link tag="b-nav-item" :to="{ name: 'images' }" active-class="active" >
+                Галлерея
+            </router-link>
+
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
