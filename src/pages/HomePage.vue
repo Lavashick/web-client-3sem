@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h1>Нужны картинки в слайдер + вывод первых 3ех карточек</h1>
+    <h1>Анонс новостей</h1>
     <b-carousel
+      label-next=""
+      label-prev=""
       id="carousel-1"
-      v-model="slide"
       :interval="4000"
       controls
       indicators
@@ -14,48 +15,20 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
-
-      <b-carousel-slide
-        caption="First slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="https://picsum.photos/1024/480/?image=52"
-      ></b-carousel-slide>
-
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <h1>Hello world!</h1>
-      </b-carousel-slide>
-
-      <b-carousel-slide
-        img-src="https://picsum.photos/1024/480/?image=58"
-      ></b-carousel-slide>
-
-      <b-carousel-slide>
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            width="1024"
-            height="480"
-            src="https://picsum.photos/1024/480/?image=55"
-            alt="image slot"
-          />
-        </template>
-      </b-carousel-slide>
-
-      <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          eros felis, tincidunt a tincidunt eget, convallis vel est. Ut
-          pellentesque ut lacus vel interdum.
-        </p>
-      </b-carousel-slide>
+      <div v-for="character of results.slice(0, 3)" :key="character.id">
+        <b-link :to="{ name: 'newsDetails', params: { id: character.id } }">
+     <b-carousel-slide
+            class="img-slide"
+            :caption="character.name"
+            :text="character.status"
+            :img-src="character.image"
+          >
+          </b-carousel-slide>
+        </b-link>
+     
+        
+      </div>
     </b-carousel>
-
-    <p class="mt-4">Slide #: {{ slide }}<br /></p>
-
-    <div class="news-card" v-for="character of results" :key="character.id">
-      {{ character.name }}
-    </div>
-
   </div>
 </template>
 
@@ -64,9 +37,9 @@ import axios from "axios";
 
 export default {
   name: "HomePage",
-  results: [],
   data() {
     return {
+      results: [],
       slide: 0,
       sliding: null,
     };
@@ -90,3 +63,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.img-slide {
+  height: 400px;
+}
+</style>
