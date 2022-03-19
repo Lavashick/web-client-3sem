@@ -24,9 +24,10 @@ export default {
 <style>
 
 .main-container {
-  margin-top: 90px !important;
-  margin-left: 20px !important;
-  margin-right: 20px !important;
+  margin: 90px 20px !important;
+  text-align: center;
 }
+
+
 
 </style>

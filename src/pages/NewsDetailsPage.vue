@@ -1,17 +1,29 @@
 <template>
   <div>
-    <p>Персонаж №{{ character.id }}</p>
-
     <h1>{{ character.name }}</h1>
+    <p class="dop-info">Персонаж №{{ character.id }}</p>
+
+    <v-row class="mx-auto">
+      <v-col class="mx-auto details-img-wrapper col-sm-12 col-md-11 col-lg-8">
+        <img class="details-img" src="/images/1.jpg" alt="" />
+      </v-col>
+    </v-row>
 
     <img
-      class="mt-2 character-img"
+      class="mt-4 md-4 character-img"
       :src="character.image"
       width="300px"
       alt=""
     />
+
+    <div class="char-info mx-auto">
+      <p>Вид: {{ character.species }}</p>
+      <p>Пол: {{ character.gender }}</p>
+      <p>Статус: {{ character.status }}</p>
+    </div>
+
     <h3 class="mt-4">Эпизоды:</h3>
-    <div class="news-card" v-for="episode of episodes" :key="episode.id">
+    <div class="dop-info news-card" v-for="episode of episodes" :key="episode.id">
       {{ episode.name }}
     </div>
   </div>
@@ -60,4 +72,23 @@ export default {
 .character-img {
   border-radius: 24px;
 }
+
+.dop-info {
+  color: grey;
+}
+
+.details-img {
+  width: 100%;
+  border-radius: 24px;
+}
+
+.char-info {
+  background-color: bisque;
+  border-radius: 24px;
+  padding: 16px 16px 8px 16px;
+  min-width: 200px;
+  max-width: 250px;
+  margin: 24px;
+}
+
 </style>
