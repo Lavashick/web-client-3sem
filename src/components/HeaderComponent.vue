@@ -62,6 +62,10 @@ export default {
   font-weight: bold;
 }
 
+b-navbar {
+  padding: 0 20px !important;
+}
+
 
 
 </style>

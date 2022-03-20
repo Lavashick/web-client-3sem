@@ -6,10 +6,12 @@
       <router-view />
       </b-col>
     </b-row>
+    <footer-component/>
   </div>
 </template>
 
 <script>
+import FooterComponent from './components/FooterComponent.vue';
 import HeaderComponent from "./components/HeaderComponent.vue";
 
 export default {
@@ -17,6 +19,7 @@ export default {
 
   components: {
     HeaderComponent,
+    FooterComponent,
   },
 };
 </script>
