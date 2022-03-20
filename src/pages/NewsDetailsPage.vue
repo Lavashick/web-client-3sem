@@ -5,16 +5,21 @@
 
     <v-row class="mx-auto">
       <v-col class="mx-auto details-img-wrapper col-sm-12 col-md-11 col-lg-8">
-        <img class="details-img" src="/images/1.jpg" alt="" />
+        <img v-if="character.id <= 11"
+          class="md-4 character-img details-img"
+          :src="'/images/' + character.id + '.jpg'"
+          width="100%"
+          alt=""
+        />
+
+        <img v-else
+          class="md-4 character-img details-img"
+          :src="character.image"
+          height="300px"
+          alt=""
+        />
       </v-col>
     </v-row>
-
-    <img
-      class="mt-4 md-4 character-img"
-      :src="character.image"
-      width="300px"
-      alt=""
-    />
 
     <div class="char-info mx-auto">
       <p>Вид: {{ character.species }}</p>
@@ -23,7 +28,11 @@
     </div>
 
     <h3 class="mt-4">Эпизоды:</h3>
-    <div class="dop-info news-card" v-for="episode of episodes" :key="episode.id">
+    <div
+      class="dop-info news-card"
+      v-for="episode of episodes"
+      :key="episode.id"
+    >
       {{ episode.name }}
     </div>
   </div>
@@ -78,17 +87,15 @@ export default {
 }
 
 .details-img {
-  width: 100%;
   border-radius: 24px;
 }
 
 .char-info {
-  background-color: bisque;
+  background-color: rgb(243, 243, 243);
   border-radius: 24px;
   padding: 16px 16px 8px 16px;
   min-width: 200px;
   max-width: 250px;
   margin: 24px;
 }
-
 </style>

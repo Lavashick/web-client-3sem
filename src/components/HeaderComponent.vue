@@ -1,46 +1,67 @@
 <template>
-    <div>
-      <b-navbar toggleable="sm" type="dark" variant="dark" fixed="top">
-        <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
+  <div>
+    <b-navbar toggleable="sm" type="dark" variant="dark" fixed="top">
+      <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
 
-        <b-navbar-brand>
-          <router-link tag="b-nav-brand" to="/">
-            <img id="my-logo" src="../assets/logo.png" alt="" />
+      <b-navbar-brand>
+        <router-link tag="b-nav-brand" to="/">
+          <img src="../assets/logo.png" width="20px" alt="" />
+          <img
+            id="my-logo"
+            src="../assets/mospolytech_logo_white-2.png"
+            alt=""
+          />
+        </router-link>
+      </b-navbar-brand>
+
+      <b-collapse id="nav-text-collapse" is-nav>
+        <b-navbar-nav>
+          <router-link
+            tag="b-nav-item"
+            :to="{ name: 'home' }"
+            active-class="active"
+            exact
+          >
+            Главная
           </router-link>
-        </b-navbar-brand>
 
-        <b-collapse id="nav-text-collapse" is-nav>
-          <b-navbar-nav>
+          <router-link
+            tag="b-nav-item"
+            :to="{ name: 'news' }"
+            active-class="active"
+            exact
+          >
+            Новости
+          </router-link>
 
-            <router-link tag="b-nav-item" :to="{ name: 'home' }" active-class="active" exact>
-                Главная
-            </router-link>
-
-            <router-link tag="b-nav-item" :to="{ name: 'news' }" active-class="active" exact>
-                Новости
-            </router-link>
-
-            <router-link tag="b-nav-item" :to="{ name: 'images' }" active-class="active" exact>
-                Галлерея
-            </router-link>
-
-          </b-navbar-nav>
-        </b-collapse>
-      </b-navbar>
-    </div>
+          <router-link
+            tag="b-nav-item"
+            :to="{ name: 'images' }"
+            active-class="active"
+            exact
+          >
+            Галлерея
+          </router-link>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HeaderComponent',
+  name: "HeaderComponent",
 };
 </script>
 
 <style>
 #my-logo {
-  width: 30px;
+  width: 160px;
 }
 .active {
-    font-weight: bold;
+  font-weight: bold;
 }
+
+
+
 </style>
